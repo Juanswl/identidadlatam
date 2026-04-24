@@ -262,3 +262,90 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para que "floten" sobre el blanco */
     border: 1px solid #f0f0f0; /* Un borde sutil para que las banderas blancas (como Uruguay) no se pierdan */
 }
+/* --- DISEÑO COHERENTE PARA MÓVIL --- */
+@media (max-width: 768px) {
+    
+    /* 1. Header Parejo: Logo arriba, links abajo bien centrados */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* 2. Hero con texto fluido: ¡No más cortes! */
+    .hero {
+        padding: 60px 20px;
+        border-radius: 0 0 40px 40px; /* Curva elegante abajo */
+        text-align: center;
+    }
+
+    .hero h1 {
+        /* 1. Tamaño ultra-responsivo */
+        font-size: clamp(2.2rem, 9vw, 3.5rem); 
+        
+        /* 2. FUERZA BRUTA: Esto corta la palabra si es necesario */
+        inline-size: 100%;
+        overflow-wrap: break-word; /* Corta la palabra al llegar al borde */
+        word-break: break-word;     /* Refuerzo para navegadores viejos */
+        hyphens: auto;              /* Pone un guion "-" si corta la palabra */
+        
+        /* 3. Estética */
+        line-height: 1;
+        text-align: center;
+        margin: 0 auto 20px;
+        padding: 0 10px; /* Evita que las letras toquen el borde físico del tlf */
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+
+    /* 3. Tarjetas Proporcionales */
+    .paises-grid {
+        grid-template-columns: 1fr; /* Una sola columna en tlf es más limpio */
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .pais-card {
+        padding: 2rem;
+        align-items: center; /* Todo centrado para coherencia */
+        text-align: center;
+    }
+
+    /* 4. Detalles de País (Hitos) */
+    .stats-grid {
+        grid-template-columns: 1fr; /* Se apilan perfecto */
+        gap: 15px;
+    }
+}
+
+/* En PC el salto de línea no existe */
+.solo-movil {
+    display: none;
+}
+
+/* En móvil activamos el salto de línea */
+@media (max-width: 768px) {
+    .solo-movil {
+        display: block;
+    }
+    
+    .hero h1 {
+        font-size: 3rem; /* ¡Ahora sí puede ser grande! */
+        line-height: 0.9;
+        text-align: center;
+    }
+}
