@@ -44,17 +44,21 @@ body {
 
 /* HERO - El Salto Ángel imponente */
 .hero-section {
-    height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
-                url('https://images.pexels.com/photos/15173367/pexels-photo-15173367.jpeg');
+   /* Nueva fuente: Pexels - Panorámica de Caracas */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/15190890/pexels-photo-15190890.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1');
+    
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Efecto Parallax */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0 0 80px 80px;
-    margin-bottom: 4rem;
+    background-position: center 30%; /* Ajustado para que el Ávila se vea más arriba */
+    background-repeat: no-repeat;
+    
+    /* Mantenemos la estructura que ya traíamos */
+    padding: 110px 20px;
+    color: white;
+    text-align: center;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5)
 }
 
 .hero-content { text-align: center; color: white; }
@@ -62,6 +66,7 @@ body {
 
 .btn-primary {
     display: inline-block;
+    margin-top: 35px;
     padding: 1rem 2.5rem;
     background: var(--acento);
     color: var(--primario);
