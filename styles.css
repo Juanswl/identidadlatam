@@ -1,0 +1,264 @@
+/* VARIABLES GLOBALES - El cerebro del diseño */
+:root {
+    --primario: #0a3d1d;    /* Verde muy oscuro y elegante */
+    --acento: #fbbf24;      /* Oro sutil */
+    --fondo: #ffffff;
+    --texto: #1f2937;
+    --gris-suave: #f3f4f6;
+    --transicion: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR - Efecto de cristal */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--gris-suave);
+}
+
+.logo { font-weight: 800; font-size: 1.5rem; color: var(--primario); }
+.logo span { color: var(--acento); }
+
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { text-decoration: none; color: var(--texto); font-weight: 500; transition: var(--transicion); }
+.nav-links a:hover { color: var(--primario); }
+
+/* HERO - El Salto Ángel imponente */
+.hero-section {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                url('https://images.pexels.com/photos/15173367/pexels-photo-15173367.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto Parallax */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 80px 80px;
+    margin-bottom: 4rem;
+}
+
+.hero-content { text-align: center; color: white; }
+.hero-content h1 { font-size: 5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -3px; }
+
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--acento);
+    color: var(--primario);
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 50px;
+    transition: var(--transicion);
+}
+.btn-primary:hover { transform: scale(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+/* GRID DE NACIONES */
+.container { padding: 4rem 10%; }
+.section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
+
+.grid-moderno {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.pais-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 30px;
+    border: 1px solid var(--gris-suave);
+    transition: var(--transicion);
+
+    /* --- ESTO ARREGLA EL DESASTRE --- */
+    display: flex;
+    flex-direction: column; /* Apila: Imagen arriba, Texto abajo */
+    align-items: flex-start; /* Alinea todo a la izquierda */
+    gap: 15px;              /* Da espacio entre la bandera, el título y el texto */
+    text-align: left;
+}
+
+.flag-icon img {
+    width: 70px;            /* Controlamos el tamaño de la bandera */
+    height: auto;
+    border-radius: 6px;
+    display: block;         /* Evita espacios extraños abajo de la imagen */
+}
+
+.pais-card h3 {
+    margin: 0;              /* Quitamos márgenes que puedan empujar el texto */
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.pais-card p {
+    margin: 0;
+    color: #666;
+    line-height: 1.4;
+}
+
+.pais-card:hover {
+    border-color: var(--primario);
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+}
+
+
+.link-detalle {
+    margin-top: 1.5rem;
+    display: inline-block;
+    color: var(--primario);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-simple { text-align: center; padding: 4rem; color: #999; font-size: 0.9rem; }
+
+/* --- DISEÑO DE DETALLE DE PAÍS --- */
+
+.navbar-detalle {
+    padding: 1.5rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid var(--gris-suave);
+}
+
+.btn-back {
+    text-decoration: none;
+    color: var(--primario);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 12px;
+    background: var(--gris-suave);
+    transition: var(--transicion);
+}
+
+.btn-back:hover { background: var(--primario); color: white; }
+
+.pais-titulo { display: flex; align-items: center; gap: 10px; }
+.pais-titulo h1 { font-size: 1.5rem; font-weight: 800; }
+
+.container-detalle { padding: 4rem 10%; max-width: 1400px; margin: 0 auto; }
+
+.pais-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.pais-hero h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 25px;
+    border: 1px solid var(--gris-suave);
+    transition: var(--transicion);
+}
+
+.stat-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.stat-card h3 { margin-bottom: 1rem; font-weight: 800; color: var(--primario); }
+.stat-card p { line-height: 1.8; color: #555; }
+
+.stat-card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border-color: var(--acento);
+}
+
+/* =============================================
+   SECCIÓN DE BÚSQUEDA MINIMALISTA
+   ============================================= */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--gris-suave); /* Ese gris clarito que definimos en :root */
+    padding: 5px 15px;
+    border-radius: 50px;           /* Esto le da la forma de píldora */
+    border: 1px solid transparent;
+    transition: var(--transicion); /* Para que se expanda suavemente */
+    width: 200px;                  /* Tamaño inicial */
+}
+
+.search-bar input {
+    background: transparent;       /* Para que use el color del padre */
+    border: none;
+    outline: none;                 /* Quita el borde azul feo al hacer clic */
+    padding: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--texto);
+    width: 100%;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    transition: var(--transicion);
+}
+
+/* EFECTO DE INGENIERÍA: Al hacer clic, la barra "cobra vida" */
+.search-bar:focus-within {
+    background: white;
+    border-color: var(--primario); /* Se pone verde cuando vas a escribir */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    width: 280px;                  /* Se expande para dar más espacio */
+}
+
+.search-bar:focus-within .search-btn {
+    opacity: 1;
+    color: var(--primario);
+}
+
+.link-detalle span {
+    margin-right: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Sombra sutil a la bandera */
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio perfecto entre la flecha, el texto y el mundo */
+}
+.flag-icon {
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.flag-icon img {
+    width: 80px;            /* Tamaño moderno y minimalista */
+    height: auto;
+    border-radius: 8px;     /* Bordes redondeados para suavizar el diseño */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para que "floten" sobre el blanco */
+    border: 1px solid #f0f0f0; /* Un borde sutil para que las banderas blancas (como Uruguay) no se pierdan */
+}
