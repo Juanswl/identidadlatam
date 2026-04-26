@@ -594,7 +594,7 @@ body {
 #btn-buscar-movil {
     font-family: inherit; /* Hereda la que ya configuró en el body o html */
     font-size: 1rem;
-    
+    position: relative;
     padding: 5px;
     border-radius: 15px;
     
