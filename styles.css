@@ -453,28 +453,29 @@ body {
     left: 0%;
     right: 0%;
     width: 100%;
-    background: white;
-    border-radius: 15px; /* Coherencia con sus botones */
+    background: white !important;
+    border-radius: 20px; /* Coherencia con sus botones */
     padding: 10px 0;
-    overflow: hidden;
     outline: none;
-    margin-top: 5px;
+    margin-top: 3px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     z-index: 9999;
     display: none;
     margin-top: 8px;
     border: 1px solid #eee;
     max-height: 250px;
-    overflow-y: auto; /* Scroll si hay muchos países */
-    display: none; /* Oculto por defecto */
+    overflow-y: auto !important; /* Scroll si hay muchos países */
+    overflow: hidden;
+    
+    
 }
 
 .sugerencia-item {
     font-family: inherit;
     font-size: 16px;
-    padding: 12px 20px;
+    padding: 12px 20px !important;
     cursor: pointer;
-    color: #333;
+    color: #333 !important;
     text-align: left;
     transition: background 0.2s;
     border-bottom: 1px solid #eee;
@@ -498,10 +499,11 @@ body {
         display: none; /* Ocultamos la barra por defecto en móvil */
         width: 100%;
         position: absolute;
-        top: 60px; /* Para que aparezca debajo del header */
+        top: 100px; /* Para que aparezca debajo del header */
         left: 0;
         background: white;
-        padding: 10px;
+        padding: 5px;
+        overflow: hidden;
     }
 
     .solo-movil {
@@ -525,46 +527,60 @@ body {
 }
 /* --- ESTILO DE LA LUPA --- */
 .lupa-btn {
+    
     background: none;
     border: none;
     color: #063d2b; /* Su verde oscuro */
     cursor: pointer;
     display: none; /* Se oculta en PC */
-    padding: 5px;
+    padding: 10px;
+    
 }
 
 @media (max-width: 768px) {
-    .lupa-btn { display: block; }
+    .lupa-btn { display: block; 
+        
+    }
+     
 
     /* La barra ahora es flotante y discreta */
     .search-box-wrapper {
         display: none;
-        position: relative;
+        position: absolute;
         top: 100%; /* Justo debajo del navbar */
         left: 0%;
         width: 100%;
         background: #fff;
-        border-radius: 10px;
-        padding: 15px;
+        border-radius: 20px;
+        padding: 10px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        z-index: 1000;
         overflow: visible;
+       
+        
     }
 
     .search-box-wrapper.activo {
         display: block;
-        animation: deslizarAbajo 0.3s ease-out;
+        animation: deslizarAbajo 0.4s ease-out;
+        border-radius: 20px;
+        
         
         
     }
 
     #input-busqueda {
         width: 100%;
-        border: 1px solid #1a1a1a;
-        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        padding: 12px 15px;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.3;
         
-        
-        
+    }
+
+    #input-busqueda:focus{
+        border-color: #063d2b;
     }
 }
 
@@ -578,20 +594,26 @@ body {
 #btn-buscar-movil {
     font-family: inherit; /* Hereda la que ya configuró en el body o html */
     font-size: 1rem;
+    
+    padding: 5px;
+    border-radius: 15px;
+    
 }
 /* Estilo del scrollbar para .sugerencias-contenedor */
 .sugerencias-contenedor::-webkit-scrollbar {
-    width: 8px; /* Barra fina */
+    width: 5px; /* Barra fina */
 }
 
 .sugerencias-contenedor::-webkit-scrollbar-track {
     background: #f1f1f1;
-    border-radius: 10px;
+    border: 1px #1a1a1a;
+    border-radius: 25px;
+    margin: 15px 0;
 }
 
 .sugerencias-contenedor::-webkit-scrollbar-thumb {
     background: #063d2b; /* Su verde de marca */
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .sugerencias-contenedor::-webkit-scrollbar-thumb:hover {
