@@ -455,13 +455,14 @@ body {
     width: 100%;
     background: white;
     border-radius: 15px; /* Coherencia con sus botones */
+    padding: 10px 0;
     overflow: hidden;
     outline: none;
     margin-top: 5px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     z-index: 9999;
     display: none;
-    margin-top: 5px;
+    margin-top: 8px;
     border: 1px solid #eee;
     max-height: 250px;
     overflow-y: auto; /* Scroll si hay muchos países */
@@ -469,6 +470,8 @@ body {
 }
 
 .sugerencia-item {
+    font-family: inherit;
+    font-size: 16px;
     padding: 12px 20px;
     cursor: pointer;
     color: #333;
@@ -482,6 +485,7 @@ body {
 .sugerencia-item:hover {
     background-color: #f1c40f; /* Su amarillo de marca */
     color: black;
+    font-weight: bold;
 }
 /* --- CONFIGURACIÓN PARA PC (Por defecto) --- */
 .solo-movil {
@@ -535,27 +539,30 @@ body {
     /* La barra ahora es flotante y discreta */
     .search-box-wrapper {
         display: none;
-        position: absolute;
+        position: relative;
         top: 100%; /* Justo debajo del navbar */
         left: 0%;
         width: 100%;
         background: #fff;
-        border-radius: 15px;
-        overflow: hidden;
+        border-radius: 10px;
         padding: 15px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         z-index: 1000;
+        overflow: visible;
     }
 
     .search-box-wrapper.activo {
         display: block;
         animation: deslizarAbajo 0.3s ease-out;
+        
+        
     }
 
     #input-busqueda {
         width: 100%;
-        border: 1px solid #ddd;
-        padding: 10px;
+        border: 1px solid #1a1a1a;
+        padding: 20px;
+        
         
         
     }
@@ -566,9 +573,27 @@ body {
     to { transform: translateY(0); opacity: 1; }
 }
 /* Esto obliga a los inputs y sugerencias a usar la fuente del body */
-#input-busqueda, 
+#input-busqueda, #input-busqueda-movil,
 .sugerencia-item,
 #btn-buscar-movil {
     font-family: inherit; /* Hereda la que ya configuró en el body o html */
     font-size: 1rem;
+}
+/* Estilo del scrollbar para .sugerencias-contenedor */
+.sugerencias-contenedor::-webkit-scrollbar {
+    width: 8px; /* Barra fina */
+}
+
+.sugerencias-contenedor::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.sugerencias-contenedor::-webkit-scrollbar-thumb {
+    background: #063d2b; /* Su verde de marca */
+    border-radius: 10px;
+}
+
+.sugerencias-contenedor::-webkit-scrollbar-thumb:hover {
+    background: #042a1e; /* Verde más oscuro al pasar el mouse */
 }
