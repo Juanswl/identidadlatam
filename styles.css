@@ -26,8 +26,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 10%;
+    padding: 10px 5%;
     background: rgba(255, 255, 255, 0.9);
+    gap: 20px;
     backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
@@ -38,9 +39,42 @@ body {
 .logo { font-weight: 800; font-size: 1.5rem; color: var(--primario); }
 .logo span { color: var(--acento); }
 
-.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links { display: flex; list-style: none; gap: 20px; flex: 1; justify-content: center; }
 .nav-links a { text-decoration: none; color: var(--texto); font-weight: 500; transition: var(--transicion); }
 .nav-links a:hover { color: var(--primario); }
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Separa los 3 bloques */
+    align-items: center; /* Los centra verticalmente */
+    padding: 10px 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    gap: 20px; /* Evita que se toquen si la pantalla se achica */
+}
+
+/* Para que la navegación no se pegue al buscador */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    flex-grow: 1; /* Esto hace que el menú ocupe el espacio sobrante */
+    justify-content: center;
+}
+
+/* Ajustamos el tamaño del buscador para que no "explote" el header */
+.search-container {
+    width: 150px; /* Tamaño fijo o máximo para que sea predecible */
+    position: relative;
+    margin: 0;
+}
+
+#input-busqueda {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #063d2b; /* El verde oscuro que tienes */
+}
 
 /* HERO - El Salto Ángel imponente */
 .hero-section {
@@ -353,4 +387,188 @@ body {
         line-height: 0.9;
         text-align: center;
     }
+}
+/* --- SECCIÓN GALERÍA --- */
+.section-title {
+    text-align: center;
+    margin: 50px 0 30px;
+    font-size: 2rem;
+    color: #1a1a1a;
+}
+
+.galeria-grid {
+    display: grid;
+    /* Esto crea 3 columnas en PC y se ajusta solo */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.galeria-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    height: 250px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto evita que la imagen se estire feo */
+    transition: transform 0.5s ease;
+}
+
+/* Efecto Hover (Zoom) */
+.galeria-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Texto que aparece al pasar el mouse */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.galeria-item:hover .overlay {
+    opacity: 1;
+}
+.search-container {
+    position: relative; /* Para que la lista se pegue al buscador */
+    width: 250px;
+    max-width: 400px;
+    
+}
+
+.sugerencias-contenedor {
+    position: absolute;
+    top: 100%; /* Justo debajo del input */
+    left: 0%;
+    right: 0%;
+    width: 100%;
+    background: white;
+    border-radius: 15px; /* Coherencia con sus botones */
+    overflow: hidden;
+    outline: none;
+    margin-top: 5px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 9999;
+    display: none;
+    margin-top: 5px;
+    border: 1px solid #eee;
+    max-height: 250px;
+    overflow-y: auto; /* Scroll si hay muchos países */
+    display: none; /* Oculto por defecto */
+}
+
+.sugerencia-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    color: #333;
+    text-align: left;
+    transition: background 0.2s;
+    border-bottom: 1px solid #eee;
+}
+
+.sugerencia-item:last-child { border-bottom: none; }
+
+.sugerencia-item:hover {
+    background-color: #f1c40f; /* Su amarillo de marca */
+    color: black;
+}
+/* --- CONFIGURACIÓN PARA PC (Por defecto) --- */
+.solo-movil {
+    display: none; /* El botón de "presione aquí" no existe en PC */
+}
+
+/* --- CONFIGURACIÓN PARA MÓVIL (Media Query) --- */
+@media (max-width: 768px) {
+    .search-box-wrapper {
+        display: none; /* Ocultamos la barra por defecto en móvil */
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Para que aparezca debajo del header */
+        left: 0;
+        background: white;
+        padding: 10px;
+    }
+
+    .solo-movil {
+        display: flex; /* Mostramos el botón */
+        align-items: center;
+        gap: 10px;
+        background: #f1f3f4;
+        border: 1px solid #063d2b;
+        padding: 8px 15px;
+        border-radius: 15px;
+        overflow: hidden;
+        font-size: 0.9rem;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    /* Clase que activaremos con JS para mostrar la barra */
+    .search-box-wrapper.activo {
+        display: block;
+    }
+}
+/* --- ESTILO DE LA LUPA --- */
+.lupa-btn {
+    background: none;
+    border: none;
+    color: #063d2b; /* Su verde oscuro */
+    cursor: pointer;
+    display: none; /* Se oculta en PC */
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .lupa-btn { display: block; }
+
+    /* La barra ahora es flotante y discreta */
+    .search-box-wrapper {
+        display: none;
+        position: absolute;
+        top: 100%; /* Justo debajo del navbar */
+        left: 0%;
+        width: 100%;
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        padding: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    .search-box-wrapper.activo {
+        display: block;
+        animation: deslizarAbajo 0.3s ease-out;
+    }
+
+    #input-busqueda {
+        width: 100%;
+        border: 1px solid #ddd;
+        padding: 10px;
+        
+        
+    }
+}
+
+@keyframes deslizarAbajo {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+/* Esto obliga a los inputs y sugerencias a usar la fuente del body */
+#input-busqueda, 
+.sugerencia-item,
+#btn-buscar-movil {
+    font-family: inherit; /* Hereda la que ya configuró en el body o html */
+    font-size: 1rem;
 }

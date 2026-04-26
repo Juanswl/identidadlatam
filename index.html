@@ -18,9 +18,18 @@
                 <li><a href="#ingenieria">Ingeniería</a></li>
             </ul>
         </nav>
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar nación...">
+        <div class= "search-container">
+            <button id="btn-buscar-movil" class="lupa-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+
+            <div class="search-box-wrapper">
+                <input type="text" id="input-busqueda"  placeholder="Buscar nación..." autocomplete="off">
+            <div id="lista-sugerencias" class="sugerencias-contenedor"></div>
+            </div>
+            
         </div>
+
     </header>
 
     <main>
@@ -32,6 +41,7 @@
             </div>
         </section>
 
+        
         <section id="naciones" class="container">
             <h2 class="section-title">Naciones de Nuestra Identidad</h2>
             <div class="grid-moderno">
@@ -130,10 +140,41 @@
         </section>
     </main>
 
+    <section id="galeria" class="container">
+    <h2 class="section-title">Postales de Nuestra Región</h2>
+    <div class="galeria-grid">
+        <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/3512848/pexels-photo-3512848.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Caracas - El Ávila">
+            <div class="overlay"><span>Caracas, Venezuela</span></div>
+        </div>
+        <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/2563681/pexels-photo-2563681.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Machu Picchu">
+            <div class="overlay"><span>Cusco, Perú</span></div>
+        </div>
+        <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/351961/pexels-photo-351961.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Río de Janeiro - Brasil">
+            <div class="overlay"><span>Río, Brasil</span></div>
+        </div>
+        <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/2362002/pexels-photo-2362002.jpeg?auto=compress&cs=tinysrgb&w=800" alt="CDMX">
+            <div class="overlay"><span>CDMX, México</span></div>
+        </div>
+        <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Buenos Aires">
+            <div class="overlay"><span>Buenos Aires, Argentina</span></div>
+        </div>
+        <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/4134644/pexels-photo-4134644.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cartagena">
+            <div class="overlay"><span>Cartagena, Colombia</span></div>
+        </div>
+    </div>
+</section>
+
     <footer class="footer-simple">
         <p>&copy; 2026 - Juan Carlos García | Ingeniería Informática UNEFA</p>
     </footer>
-<script src="script.js"></script>
 
+    <script src="script.js"></script>
 </body>
+
 </html>
