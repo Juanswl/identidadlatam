@@ -15,37 +15,58 @@
             <ul class="nav-links">
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#naciones">Naciones</a></li>
-                <li><a href="#ingenieria">Ingeniería</a></li>
+                <li><a href="#galeria">Galería</a></li>
             </ul>
         </nav>
-        <div class= "search-container">
-            <button id="btn-buscar-movil" class="lupa-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        
+        <div class="search-container">
+            <button id="btn-buscar" class="lupa-btn" aria-label="Buscar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
             </button>
-
-            <div class="search-box-wrapper">
-                <input type="text" id="input-busqueda-movil"  placeholder="Buscar nación..." autocomplete="off">
-            <div id="lista-sugerencias" class="sugerencias-contenedor"></div>
+            <div class="search-box-wrapper" id="search-wrapper">
+                <input type="text" id="input-busqueda" placeholder="Buscar nación..." autocomplete="off">
+                <div id="lista-sugerencias" class="sugerencias-contenedor"></div>
             </div>
-            
         </div>
-
     </header>
 
     <main>
         <section id="hero" class="hero-section">
             <div class="hero-content">
-                <h1>Latino<br class="solo-movil">américa</h1>
+                <h1>Latinoamérica</h1>
                 <p>El crisol de la identidad, la ingeniería y el futuro.</p>
                 <a href="#naciones" class="btn-primary">Explorar Ahora</a>
             </div>
         </section>
 
-        
         <section id="naciones" class="container">
             <h2 class="section-title">Naciones de Nuestra Identidad</h2>
-            <div class="grid-moderno">
+            
+            <div class="contenedor-card">
+                <div class="card-texto">
+                    <h2>El laberinto del sincretismo: ¿Qué define a la identidad latinoamericana?</h2>
+                    <p>Hablar de la identidad latinoamericana no es referirse a una esencia homogénea o estática, sino a un proceso continuo de tensión, asimilación y resistencia. A diferencia de otras regiones del mundo cuyas fronteras delimitan culturas uniformes, América Latina es, por definición, un territorio de fronteras porosas y sincretismo crónico. Es el resultado de un violento y complejo choque de mundos que comenzó en el siglo XV y que, lejos de haber concluido, se sigue reescribiendo en las calles de sus metrópolis y en la mística de sus pueblos originarios.</p>
+                    <p>La base fundacional de esta identidad descansa sobre tres pilares fundamentales que a menudo se contradicen entre sí: el legado de las civilizaciones prehispánicas (como los mayas, aztecas e incas), la imposición cultural, lingüística y religiosa de los imperios ibéricos, y la masiva herencia de los pueblos africanos traídos de manera forzosa durante la época colonial. Este triple mestizaje no se tradujo en una fusión pacífica, sino en una amalgama de contrastes donde lo sagrado ancestral convive cara a cara con la modernidad más cosmopolita.</p>
+                    
+                    <h2>Geografía indomable y resiliencia histórica</h2>
+                    <p>Un factor indispensable para comprender el temperamento latinoamericano es la escala monumental de su propia geografía. El relieve de la región ha moldeado la psicología y la historia de sus habitantes: desde la aridez extrema del desierto de Atacama hasta el pulmón impenetrable de la Amazonía, pasando por la columna vertebral de los Andes y las costas abiertas al Caribe.</p>
+                    <p>A pesar de que el mapa se dividió en más de una veintena de repúblicas independientes, la experiencia histórica común mantuvo a la región unida por hilos invisibles. Sin embargo, es precisamente de esa inestabilidad de donde emana el rasgo más distintivo del latinoamericano: una capacidad de resiliencia y una flexibilidad cultural para reinventarse ante el colapso institucional o económico.</p>
+                    
+                    <h2>La paradoja del realismo mágico y el futuro común</h2>
+                    <p>La literatura de la región capturó perfectamente esta realidad bajo el concepto del "Realismo Mágico": la noción de que en Latinoamérica lo inverosímil, lo trágico y lo maravilloso forman parte de la rutina diaria. En la identidad latinoamericana se cruzan el misticismo, la devoción religiosa popular, la melancolía de sus músicas tradicionales (como el tango, el son o la ranchera) y una vitalidad colectiva que estalla en sus manifestaciones artísticas y festivas.</p>
+                </div>
                 
+                <div class="card-imagen">
+                    <img src="https://i.pinimg.com/736x/09/8c/e2/098ce2fe788751aa3420eb6481364c3f.jpg" alt="Mural e identidad cultural">
+                    <img src="https://i.pinimg.com/1200x/0f/c2/de/0fc2dede96e0f272766c55e558de48a8.jpg" alt="Arte autóctono latinoamericano">    
+                </div>
+            </div>     
+
+            <div class="grid-moderno">
+                <!-- Venezuela -->
                 <article class="pais-card">
                     <div class="flag-icon">
                         <img src="https://flagcdn.com/w160/ve.png" alt="Bandera de Venezuela">
@@ -55,6 +76,7 @@
                     <a href="paises/venezuela.html" class="link-detalle">Ver Identidad →</a>
                 </article>
 
+                <!-- México -->
                 <article class="pais-card">
                     <div class="flag-icon">
                         <img src="https://flagcdn.com/w160/mx.png" alt="Bandera de México">
@@ -64,6 +86,7 @@
                     <a href="paises/mexico.html" class="link-detalle">Ver Identidad →</a>
                 </article>
 
+                <!-- Argentina -->
                 <article class="pais-card">
                     <div class="flag-icon">
                         <img src="https://flagcdn.com/w160/ar.png" alt="Bandera de Argentina">
@@ -73,6 +96,7 @@
                     <a href="paises/argentina.html" class="link-detalle">Ver Identidad →</a>
                 </article>
 
+                <!-- Colombia -->
                 <article class="pais-card">
                     <div class="flag-icon">
                         <img src="https://flagcdn.com/w160/co.png" alt="Bandera de Colombia">
@@ -82,93 +106,124 @@
                     <a href="paises/colombia.html" class="link-detalle">Ver Identidad →</a>
                 </article>
 
+                <!-- Chile -->
                 <article class="pais-card">
                     <div class="flag-icon">
-                        <img src="https://flagcdn.com/w160/cl.png" alt="Chile">
+                        <img src="https://flagcdn.com/w160/cl.png" alt="Bandera de Chile">
                     </div>
                     <h3>Chile</h3>
                     <p>Tierra de poetas y contrastes entre desierto y glaciares.</p>
                     <a href="paises/chile.html" class="link-detalle">Ver Identidad →</a>
                 </article>
 
+                <!-- Perú -->
                 <article class="pais-card">
                     <div class="flag-icon">
-                        <img src="https://flagcdn.com/w160/pe.png" alt="Perú">
+                        <img src="https://flagcdn.com/w160/pe.png" alt="Bandera de Perú">
                     </div>
                     <h3>Perú</h3>
                     <p>El legado inca de Machu Picchu y una gastronomía milenaria.</p>
                     <a href="paises/peru.html" class="link-detalle">Ver Identidad →</a>
                 </article>
 
+                <!-- Brasil -->
                 <article class="pais-card">
                     <div class="flag-icon">
-                        <img src="https://flagcdn.com/w160/br.png" alt="Brasil">
+                        <img src="https://flagcdn.com/w160/br.png" alt="Bandera de Brasil">
                     </div>
                     <h3>Brasil</h3>
                     <p>El gigante del Amazonas y el ritmo que mueve al continente.</p>
                     <a href="paises/brasil.html" class="link-detalle">Ver Identidad →</a>
                 </article>
 
+                <!-- Ecuador -->
                 <article class="pais-card">
                     <div class="flag-icon">
-                        <img src="https://flagcdn.com/w160/ec.png" alt="Ecuador">
+                        <img src="https://flagcdn.com/w160/ec.png" alt="Bandera de Ecuador">
                     </div>
                     <h3>Ecuador</h3>
                     <p>En el centro exacto del mundo y cuna de las Galápagos.</p>
                     <a href="paises/ecuador.html" class="link-detalle">Ver Identidad →</a>
                 </article>
 
+                <!-- Bolivia -->
                 <article class="pais-card">
                     <div class="flag-icon">
-                        <img src="https://flagcdn.com/w160/bo.png" alt="Bolivia">
+                        <img src="https://flagcdn.com/w160/bo.png" alt="Bandera de Bolivia">
                     </div>
                     <h3>Bolivia</h3>
                     <p>El espejo del cielo en el Salar de Uyuni y raíces ancestrales.</p>
                     <a href="paises/bolivia.html" class="link-detalle">Ver Identidad →</a>
                 </article>
 
+                <!-- Paraguay (Añadido para mantener consistencia con JS) -->
                 <article class="pais-card">
                     <div class="flag-icon">
-                        <img src="https://flagcdn.com/w160/uy.png" alt="Uruguay">
+                        <img src="https://flagcdn.com/w160/py.png" alt="Bandera de Paraguay">
+                    </div>
+                    <h3>Paraguay</h3>
+                    <p>Tierra del guaraní, el tereré y el gran corazón de Sudamérica.</p>
+                    <a href="paises/paraguay.html" class="link-detalle">Ver Identidad →</a>
+                </article>
+
+                <!-- Uruguay -->
+                <article class="pais-card">
+                    <div class="flag-icon">
+                        <img src="https://flagcdn.com/w160/uy.png" alt="Bandera de Uruguay">
                     </div>
                     <h3>Uruguay</h3>
                     <p>Tradición rioplatense, costas tranquilas y gran calidad de vida.</p>
                     <a href="paises/uruguay.html" class="link-detalle">Ver Identidad →</a>
                 </article>
-
             </div>
         </section>
     </main>
 
     <section id="galeria" class="container">
-    <h2 class="section-title">Postales de Nuestra Región</h2>
-    <div class="galeria-grid">
-        <div class="galeria-item">
-            <img src="https://images.pexels.com/photos/3512848/pexels-photo-3512848.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Caracas - El Ávila">
-            <div class="overlay"><span>Caracas, Venezuela</span></div>
+        <h2 class="section-title">Postales de Nuestra Región</h2>
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <img src="https://images.pexels.com/photos/3512848/pexels-photo-3512848.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Caracas - El Ávila">
+                <div class="overlay"><span>Caracas, Venezuela</span></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.pexels.com/photos/2563681/pexels-photo-2563681.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Machu Picchu">
+                <div class="overlay"><span>Cusco, Perú</span></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.pexels.com/photos/351961/pexels-photo-351961.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Río de Janeiro - Brasil">
+                <div class="overlay"><span>Río, Brasil</span></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.pexels.com/photos/2362002/pexels-photo-2362002.jpeg?auto=compress&cs=tinysrgb&w=800" alt="CDMX">
+                <div class="overlay"><span>CDMX, México</span></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Buenos Aires">
+                <div class="overlay"><span>Buenos Aires, Argentina</span></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.pexels.com/photos/4134644/pexels-photo-4134644.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cartagena">
+                <div class="overlay"><span>Cartagena, Colombia</span></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://picsum.photos/seed/bolivia/800/500" alt="Salar de Uyuni">
+                <div class="overlay"><span>Salar de Uyuni, Bolivia</span></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://picsum.photos/seed/chile/800/500" alt="Santiago de Chile">
+                <div class="overlay"><span>Santiago, Chile</span></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://picsum.photos/seed/ecuador/800/500" alt="Quito">
+                <div class="overlay"><span>Quito, Ecuador</span></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://picsum.photos/seed/uruguay/800/500" alt="Montevideo">
+                <div class="overlay"><span>Montevideo, Uruguay</span></div>
+            </div>
         </div>
-        <div class="galeria-item">
-            <img src="https://images.pexels.com/photos/2563681/pexels-photo-2563681.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Machu Picchu">
-            <div class="overlay"><span>Cusco, Perú</span></div>
-        </div>
-        <div class="galeria-item">
-            <img src="https://images.pexels.com/photos/351961/pexels-photo-351961.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Río de Janeiro - Brasil">
-            <div class="overlay"><span>Río, Brasil</span></div>
-        </div>
-        <div class="galeria-item">
-            <img src="https://images.pexels.com/photos/2362002/pexels-photo-2362002.jpeg?auto=compress&cs=tinysrgb&w=800" alt="CDMX">
-            <div class="overlay"><span>CDMX, México</span></div>
-        </div>
-        <div class="galeria-item">
-            <img src="https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Buenos Aires">
-            <div class="overlay"><span>Buenos Aires, Argentina</span></div>
-        </div>
-        <div class="galeria-item">
-            <img src="https://images.pexels.com/photos/4134644/pexels-photo-4134644.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cartagena">
-            <div class="overlay"><span>Cartagena, Colombia</span></div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <footer class="footer-simple">
         <p>&copy; 2026 - Juan Carlos García | Ingeniería Informática UNEFA</p>
@@ -176,5 +231,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>

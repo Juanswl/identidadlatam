@@ -1,11 +1,14 @@
-/* VARIABLES GLOBALES - El cerebro del diseño */
+/* ==========================================================================
+   1. VARIABLES Y RESETEO
+   ========================================================================== */
 :root {
-    --primario: #0a3d1d;    /* Verde muy oscuro y elegante */
+    --primario: #0a3d1d;    /* Verde oscuro elegante */
     --acento: #fbbf24;      /* Oro sutil */
-    --fondo: #ffffff;
+    --fondo: #fcfcfc;
     --texto: #1f2937;
-    --gris-suave: #f3f4f6;
-    --transicion: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --gris-suave: #e5e7eb;
+    --gris-medio: #9ca3af;
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -19,89 +22,16 @@ body {
     background-color: var(--fondo);
     color: var(--texto);
     scroll-behavior: smooth;
+    line-height: 1.6;
 }
 
-/* NAVBAR - Efecto de cristal */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 5%;
-    background: rgba(255, 255, 255, 0.9);
-    gap: 20px;
-    backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--gris-suave);
-}
-
-.logo { font-weight: 800; font-size: 1.5rem; color: var(--primario); }
-.logo span { color: var(--acento); }
-
-.nav-links { display: flex; list-style: none; gap: 20px; flex: 1; justify-content: center; }
-.nav-links a { text-decoration: none; color: var(--texto); font-weight: 500; transition: var(--transicion); }
-.nav-links a:hover { color: var(--primario); }
-
-
-.navbar {
-    display: flex;
-    justify-content: space-between; /* Separa los 3 bloques */
-    align-items: center; /* Los centra verticalmente */
-    padding: 10px 5%;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    gap: 20px; /* Evita que se toquen si la pantalla se achica */
-}
-
-/* Para que la navegación no se pegue al buscador */
-.nav-links {
-    display: flex;
-    gap: 15px;
-    flex-grow: 1; /* Esto hace que el menú ocupe el espacio sobrante */
-    justify-content: center;
-}
-
-/* Ajustamos el tamaño del buscador para que no "explote" el header */
-.search-container {
-    width: 150px; /* Tamaño fijo o máximo para que sea predecible */
-    position: relative;
-    margin: 0;
-}
-
-#input-busqueda {
-    width: 100%;
-    padding: 8px 15px;
-    border-radius: 20px;
-    border: 1px solid #063d2b; /* El verde oscuro que tienes */
-}
-
-/* HERO - El Salto Ángel imponente */
-.hero-section {
-   /* Nueva fuente: Pexels - Panorámica de Caracas */
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
-        url('https://images.pexels.com/photos/15190890/pexels-photo-15190890.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1');
-    
-    background-size: cover;
-    background-position: center 30%; /* Ajustado para que el Ávila se vea más arriba */
-    background-repeat: no-repeat;
-    
-    /* Mantenemos la estructura que ya traíamos */
-    padding: 110px 20px;
-    color: white;
-    text-align: center;
-    border-radius: 0 0 50px 50px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5)
-}
-
-.hero-content { text-align: center; color: white; }
-.hero-content h1 { font-size: 5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -3px; }
-
+/* ==========================================================================
+   2. COMPONENTES GLOBALES
+   ========================================================================== */
 .btn-primary {
     display: inline-block;
-    margin-top: 35px;
-    padding: 1rem 2.5rem;
+    margin-top: 25px;
+    padding: 0.9rem 2.2rem;
     background: var(--acento);
     color: var(--primario);
     text-decoration: none;
@@ -109,513 +39,542 @@ body {
     border-radius: 50px;
     transition: var(--transicion);
 }
-.btn-primary:hover { transform: scale(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-/* GRID DE NACIONES */
-.container { padding: 4rem 10%; }
-.section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
+}
 
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: var(--primario);
+    font-weight: 800;
+}
+
+.container { 
+    padding: 5rem 5%; 
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. ESTRUCTURA GENERAL (Navbar y Hero)
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--gris-suave);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.logo { 
+    font-weight: 800; 
+    font-size: 1.5rem; 
+    color: var(--primario); 
+    user-select: none;
+}
+.logo span { color: var(--acento); }
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 25px; 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--texto); 
+    font-weight: 500; 
+    transition: var(--transicion); 
+}
+.nav-links a:hover { 
+    color: var(--primario); 
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+                url('https://images.pexels.com/photos/15190890/pexels-photo-15190890.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1');
+    background-size: cover;
+    background-position: center;
+    padding: 130px 20px;
+    color: white;
+    text-align: center;
+    border-radius: 0 0 40px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.hero-content h1 { 
+    font-size: clamp(1.8rem, 7vw, 4.5rem); 
+    font-weight: 800; 
+    margin-bottom: 1rem; 
+    letter-spacing: -2px; 
+    line-height: 1.1;
+    white-space: nowrap; 
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   4. SECCIÓN RESPONSIVA DE INFORMACIÓN (Grid moderno sin floats)
+   ========================================================================== */
+.contenedor-card {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    background: #ffffff;
+    border: 1px solid var(--gris-suave);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    margin-bottom: 5rem;
+    align-items: start;
+}
+
+.card-texto h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    color: var(--primario);
+    line-height: 1.3;
+}
+
+.card-texto h2:first-of-type {
+    margin-top: 0;
+}
+
+.card-texto p {
+    color: var(--texto);
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    text-align: justify;
+    opacity: 0.9;
+}
+
+.card-imagen {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 100px;
+}
+
+.card-imagen img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: var(--transicion);
+}
+
+.card-imagen img:hover {
+    transform: scale(1.02);
+}
+
+/* ==========================================================================
+   5. GRID DE PAÍSES
+   ========================================================================== */
 .grid-moderno {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
 }
 
 .pais-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 30px;
+    background: #ffffff;
     border: 1px solid var(--gris-suave);
+    border-radius: 16px;
+    padding: 25px;
     transition: var(--transicion);
-
-    /* --- ESTO ARREGLA EL DESASTRE --- */
     display: flex;
-    flex-direction: column; /* Apila: Imagen arriba, Texto abajo */
-    align-items: flex-start; /* Alinea todo a la izquierda */
-    gap: 15px;              /* Da espacio entre la bandera, el título y el texto */
-    text-align: left;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pais-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--acento);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+}
+
+.flag-icon {
+    width: 50px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #f3f4f6;
 }
 
 .flag-icon img {
-    width: 70px;            /* Controlamos el tamaño de la bandera */
-    height: auto;
-    border-radius: 6px;
-    display: block;         /* Evita espacios extraños abajo de la imagen */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .pais-card h3 {
-    margin: 0;              /* Quitamos márgenes que puedan empujar el texto */
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--primario);
+    margin-bottom: 10px;
     font-weight: 800;
 }
 
 .pais-card p {
-    margin: 0;
-    color: #666;
-    line-height: 1.4;
+    font-size: 0.95rem;
+    color: var(--texto);
+    opacity: 0.8;
+    margin-bottom: 20px;
+    flex-grow: 1;
 }
-
-.pais-card:hover {
-    border-color: var(--primario);
-    transform: translateY(-15px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
-}
-
 
 .link-detalle {
-    margin-top: 1.5rem;
-    display: inline-block;
-    color: var(--primario);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.footer-simple { text-align: center; padding: 4rem; color: #999; font-size: 0.9rem; }
-
-/* --- DISEÑO DE DETALLE DE PAÍS --- */
-
-.navbar-detalle {
-    padding: 1.5rem 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    border-bottom: 1px solid var(--gris-suave);
-}
-
-.btn-back {
     text-decoration: none;
     color: var(--primario);
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 8px 16px;
-    border-radius: 12px;
-    background: var(--gris-suave);
+    font-weight: 800;
+    font-size: 0.95rem;
     transition: var(--transicion);
 }
 
-.btn-back:hover { background: var(--primario); color: white; }
-
-.pais-titulo { display: flex; align-items: center; gap: 10px; }
-.pais-titulo h1 { font-size: 1.5rem; font-weight: 800; }
-
-.container-detalle { padding: 4rem 10%; max-width: 1400px; margin: 0 auto; }
-
-.pais-hero {
-    text-align: center;
-    margin-bottom: 4rem;
+.link-detalle:hover {
+    color: var(--acento);
+    padding-left: 5px;
 }
 
-.pais-hero h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.stat-card {
-    background: #fff;
-    padding: 3rem;
-    border-radius: 25px;
-    border: 1px solid var(--gris-suave);
-    transition: var(--transicion);
-}
-
-.stat-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.stat-card h3 { margin-bottom: 1rem; font-weight: 800; color: var(--primario); }
-.stat-card p { line-height: 1.8; color: #555; }
-
-.stat-card:hover {
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    border-color: var(--acento);
-}
-
-/* =============================================
-   SECCIÓN DE BÚSQUEDA MINIMALISTA
-   ============================================= */
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    background: var(--gris-suave); /* Ese gris clarito que definimos en :root */
-    padding: 5px 15px;
-    border-radius: 50px;           /* Esto le da la forma de píldora */
-    border: 1px solid transparent;
-    transition: var(--transicion); /* Para que se expanda suavemente */
-    width: 200px;                  /* Tamaño inicial */
-}
-
-.search-bar input {
-    background: transparent;       /* Para que use el color del padre */
-    border: none;
-    outline: none;                 /* Quita el borde azul feo al hacer clic */
-    padding: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    color: var(--texto);
-    width: 100%;
-}
-
-.search-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    opacity: 0.6;
-    transition: var(--transicion);
-}
-
-/* EFECTO DE INGENIERÍA: Al hacer clic, la barra "cobra vida" */
-.search-bar:focus-within {
-    background: white;
-    border-color: var(--primario); /* Se pone verde cuando vas a escribir */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    width: 280px;                  /* Se expande para dar más espacio */
-}
-
-.search-bar:focus-within .search-btn {
-    opacity: 1;
-    color: var(--primario);
-}
-
-.link-detalle span {
-    margin-right: 8px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Sombra sutil a la bandera */
-}
-
-.btn-back {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Espacio perfecto entre la flecha, el texto y el mundo */
-}
-.flag-icon {
-    margin-bottom: 1.5rem;
-    display: block;
-}
-
-.flag-icon img {
-    width: 80px;            /* Tamaño moderno y minimalista */
-    height: auto;
-    border-radius: 8px;     /* Bordes redondeados para suavizar el diseño */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para que "floten" sobre el blanco */
-    border: 1px solid #f0f0f0; /* Un borde sutil para que las banderas blancas (como Uruguay) no se pierdan */
-}
-/* --- DISEÑO COHERENTE PARA MÓVIL --- */
-@media (max-width: 768px) {
-    
-    /* 1. Header Parejo: Logo arriba, links abajo bien centrados */
-    .navbar {
-        flex-direction: column;
-        padding: 15px 0;
-        gap: 15px;
-    }
-
-    .logo {
-        font-size: 1.4rem;
-        text-align: center;
-    }
-
-    .nav-links {
-        width: 100%;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    /* 2. Hero con texto fluido: ¡No más cortes! */
-    .hero {
-        padding: 60px 20px;
-        border-radius: 0 0 40px 40px; /* Curva elegante abajo */
-        text-align: center;
-    }
-
-    .hero h1 {
-        /* 1. Tamaño ultra-responsivo */
-        font-size: clamp(2.2rem, 9vw, 3.5rem); 
-        
-        /* 2. FUERZA BRUTA: Esto corta la palabra si es necesario */
-        inline-size: 100%;
-        overflow-wrap: break-word; /* Corta la palabra al llegar al borde */
-        word-break: break-word;     /* Refuerzo para navegadores viejos */
-        hyphens: auto;              /* Pone un guion "-" si corta la palabra */
-        
-        /* 3. Estética */
-        line-height: 1;
-        text-align: center;
-        margin: 0 auto 20px;
-        padding: 0 10px; /* Evita que las letras toquen el borde físico del tlf */
-    }
-
-    .hero p {
-        font-size: 1.1rem;
-        padding: 0 15px;
-    }
-
-    /* 3. Tarjetas Proporcionales */
-    .paises-grid {
-        grid-template-columns: 1fr; /* Una sola columna en tlf es más limpio */
-        padding: 20px;
-        gap: 20px;
-    }
-
-    .pais-card {
-        padding: 2rem;
-        align-items: center; /* Todo centrado para coherencia */
-        text-align: center;
-    }
-
-    /* 4. Detalles de País (Hitos) */
-    .stats-grid {
-        grid-template-columns: 1fr; /* Se apilan perfecto */
-        gap: 15px;
-    }
-}
-
-/* En PC el salto de línea no existe */
-.solo-movil {
-    display: none;
-}
-
-/* En móvil activamos el salto de línea */
-@media (max-width: 768px) {
-    .solo-movil {
-        display: block;
-    }
-    
-    .hero h1 {
-        font-size: 3rem; /* ¡Ahora sí puede ser grande! */
-        line-height: 0.9;
-        text-align: center;
-    }
-}
-/* --- SECCIÓN GALERÍA --- */
-.section-title {
-    text-align: center;
-    margin: 50px 0 30px;
-    font-size: 2rem;
-    color: #1a1a1a;
-}
-
+/* ==========================================================================
+   6. SECCIÓN GALERÍA
+   ========================================================================== */
 .galeria-grid {
     display: grid;
-    /* Esto crea 3 columnas en PC y se ajusta solo */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
 }
 
 .galeria-item {
     position: relative;
     overflow: hidden;
-    border-radius: 15px;
-    height: 250px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
 }
 
 .galeria-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Esto evita que la imagen se estire feo */
-    transition: transform 0.5s ease;
+    object-fit: cover;
+    transition: var(--transicion);
 }
 
-/* Efecto Hover (Zoom) */
-.galeria-item:hover img {
-    transform: scale(1.1);
-}
-
-/* Texto que aparece al pasar el mouse */
 .overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 20px;
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(10, 61, 29, 0.85));
+    display: flex;
+    align-items: flex-end;
+    padding: 15px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: var(--transicion);
+}
+
+.overlay span {
+    color: white;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transform: translateY(10px);
+    transition: var(--transicion);
+}
+
+.galeria-item:hover img {
+    transform: scale(1.05);
 }
 
 .galeria-item:hover .overlay {
     opacity: 1;
 }
+
+.galeria-item:hover .overlay span {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   7. CONTROL DEL BUSCADOR (Responsivo y Adaptado)
+   ========================================================================== */
 .search-container {
-    position: relative; /* Para que la lista se pegue al buscador */
-    width: 250px;
-    max-width: 400px;
-    
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.lupa-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primario);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    transition: var(--transicion);
+}
+
+.search-box-wrapper {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: right;
+    transition: var(--transicion);
+    background: white;
+    border-radius: 20px;
+    border: 1px solid var(--gris-suave);
+    padding: 2px 10px;
+    display: flex;
+    align-items: center;
+    width: 260px;
+    opacity: 0;
+}
+
+.search-box-wrapper.activo {
+    transform: translateY(-50%) scaleX(1);
+    opacity: 1;
+}
+
+.search-box-wrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
 }
 
 .sugerencias-contenedor {
     position: absolute;
-    top: 100%; /* Justo debajo del input */
-    left: 0%;
-    right: 0%;
+    top: 100%;
+    right: 0;
     width: 100%;
-    background: white !important;
-    border-radius: 20px; /* Coherencia con sus botones */
-    padding: 10px 0;
-    outline: none;
-    margin-top: 3px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    z-index: 9999;
-    display: none;
-    margin-top: 8px;
-    border: 1px solid #eee;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--gris-suave);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    margin-top: 10px;
     max-height: 250px;
-    overflow-y: auto !important; /* Scroll si hay muchos países */
-    overflow: hidden;
-    
-    
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
 }
 
 .sugerencia-item {
-    font-family: inherit;
-    font-size: 16px;
-    padding: 12px 20px !important;
+    padding: 10px 15px;
     cursor: pointer;
-    color: #333 !important;
-    text-align: left;
     transition: background 0.2s;
-    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
 }
-
-.sugerencia-item:last-child { border-bottom: none; }
 
 .sugerencia-item:hover {
-    background-color: #f1c40f; /* Su amarillo de marca */
-    color: black;
-    font-weight: bold;
-}
-/* --- CONFIGURACIÓN PARA PC (Por defecto) --- */
-.solo-movil {
-    display: none; /* El botón de "presione aquí" no existe en PC */
+    background: #f3f4f6;
+    color: var(--primario);
+    font-weight: 500;
 }
 
-/* --- CONFIGURACIÓN PARA MÓVIL (Media Query) --- */
-@media (max-width: 768px) {
-    .search-box-wrapper {
-        display: none; /* Ocultamos la barra por defecto en móvil */
-        width: 100%;
-        position: absolute;
-        top: 100px; /* Para que aparezca debajo del header */
-        left: 0;
-        background: white;
-        padding: 5px;
-        overflow: hidden;
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+.footer-simple { 
+    text-align: center; 
+    padding: 3rem; 
+    color: var(--gris-medio); 
+    font-size: 0.85rem;
+    border-top: 1px solid var(--gris-suave);
+    background: #ffffff;
+}
+
+/* ==========================================================================
+   9. MEDIA QUERIES (Soporte móvil fluido)
+   ========================================================================== */
+@media (max-width: 968px) {
+    .contenedor-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        gap: 30px;
+    }
+    
+    .card-imagen {
+        order: -1; /* Posiciona la galería de imágenes arriba en móviles */
+        position: static;
     }
 
-    .solo-movil {
-        display: flex; /* Mostramos el botón */
-        align-items: center;
-        gap: 10px;
-        background: #f1f3f4;
-        border: 1px solid #063d2b;
-        padding: 8px 15px;
-        border-radius: 15px;
-        overflow: hidden;
-        font-size: 0.9rem;
-        cursor: pointer;
-        width: 100%;
+    .card-imagen img {
+        height: 200px;
     }
-    
-    /* Clase que activaremos con JS para mostrar la barra */
-    .search-box-wrapper.activo {
-        display: block;
-    }
-}
-/* --- ESTILO DE LA LUPA --- */
-.lupa-btn {
-    
-    background: none;
-    border: none;
-    color: #063d2b; /* Su verde oscuro */
-    cursor: pointer;
-    display: none; /* Se oculta en PC */
-    padding: 10px;
-    
 }
 
 @media (max-width: 768px) {
-    .lupa-btn { display: block; 
-        
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
     }
-     
 
-    /* La barra ahora es flotante y discreta */
+    .nav-links {
+        gap: 15px;
+    }
+
+    .search-container {
+        width: 100%;
+        justify-content: center;
+    }
+
     .search-box-wrapper {
-        display: none;
         position: absolute;
-        top: 100%; /* Justo debajo del navbar */
-        left: 0%;
-        width: 100%;
-        background: #fff;
-        border-radius: 20px;
-        padding: 10px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        overflow: visible;
-       
-        
-    }
-
-    .search-box-wrapper.activo {
-        display: block;
-        animation: deslizarAbajo 0.4s ease-out;
-        border-radius: 20px;
-        
-        
-        
-    }
-
-    #input-busqueda {
-        width: 100%;
-        border: 1px solid #ddd;
-        border-radius: 15px;
-        padding: 12px 15px;
-        font-family: inherit;
-        outline: none;
-        transition: border-color 0.3;
-        
-    }
-
-    #input-busqueda:focus{
-        border-color: #063d2b;
+        width: 90%;
+        left: 5%;
+        right: 5%;
     }
 }
-
-@keyframes deslizarAbajo {
-    from { transform: translateY(-10px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-/* Esto obliga a los inputs y sugerencias a usar la fuente del body */
-#input-busqueda, #input-busqueda-movil,
-.sugerencia-item,
-#btn-buscar-movil {
-    font-family: inherit; /* Hereda la que ya configuró en el body o html */
-    font-size: 1rem;
-    position: relative;
-    padding: 5px;
-    border-radius: 15px;
-    
-}
-/* Estilo del scrollbar para .sugerencias-contenedor */
-.sugerencias-contenedor::-webkit-scrollbar {
-    width: 5px; /* Barra fina */
+/* ==========================================================================
+   10. ESTILOS DE PÁGINAS DE DETALLE (PAÍSES)
+   ========================================================================== */
+.pais-body {
+    background-color: #f9fafb;
 }
 
-.sugerencias-contenedor::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border: 1px #1a1a1a;
-    border-radius: 25px;
-    margin: 15px 0;
+.navbar-detalle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #ffffff;
+    border-bottom: 1px solid var(--gris-suave);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
 
-.sugerencias-contenedor::-webkit-scrollbar-thumb {
-    background: #063d2b; /* Su verde de marca */
-    border-radius: 15px;
+.btn-back {
+    text-decoration: none;
+    color: var(--primario);
+    font-weight: 800;
+    font-size: 0.95rem;
+    transition: var(--transicion);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.sugerencias-contenedor::-webkit-scrollbar-thumb:hover {
-    background: #042a1e; /* Verde más oscuro al pasar el mouse */
+.btn-back:hover {
+    color: var(--acento);
+    transform: translateX(-3px);
+}
+
+.postal-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f3f4f6;
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid var(--gris-suave);
+}
+
+.bandera-crop {
+    width: 28px;
+    height: 18px;
+    overflow: hidden;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.bandera-crop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pais-nombre {
+    font-weight: 800;
+    color: var(--primario);
+    font-size: 0.9rem;
+}
+
+.container-detalle {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 5%;
+    width: 100%;
+}
+
+.pais-hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, var(--primario), #135d2f);
+    color: #ffffff;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 25px rgba(10, 61, 29, 0.08);
+}
+
+.pais-hero h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.pais-hero p {
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    opacity: 0.9;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid var(--gris-suave);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+    transition: var(--transicion);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--acento);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card h3 {
+    color: var(--primario);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.stat-card p {
+    font-size: 0.95rem;
+    color: var(--texto);
+    line-height: 1.7;
+    text-align: justify;
 }
